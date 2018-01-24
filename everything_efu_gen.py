@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Copyright 2017 Torbjörn Lönnemark <tobbez@ryara.net>
+# Copyright 2017, 2018 Torbjörn Lönnemark <tobbez@ryara.net>
 #
 # Permission to use, copy, modify, and distribute this software for any purpose
 # with or without fee is hereby granted, provided that the above copyright

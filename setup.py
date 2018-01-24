@@ -8,7 +8,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as f:
 
 setuptools.setup(
   name='everything-efu-gen',
-  version='0.0.0',
+  version='0.0.1',
 
   description='Generator of Everything File List (EFU) files',
   long_description=long_description,

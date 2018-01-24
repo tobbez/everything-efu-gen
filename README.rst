@@ -38,3 +38,13 @@ Then follow `the documentation for adding these to Everything's index <https://w
 
 To ensure the file lists stay up to date, schedule periodic runs using cron (or
 similar).
+
+History
+-------
+* 0.0.1
+
+  - Gracefully handle stat on non-existant files
+
+* 0.0.0
+
+  - Initial release
