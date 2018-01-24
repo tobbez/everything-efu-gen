@@ -102,7 +102,12 @@ def scan(path):
     for dirpath, dirnames, filenames in os.walk(path):
       for name, is_dir in chain(zip(filenames, [False] * len(filenames)), zip(dirnames, [True] * len(filenames))):
         p = os.path.join(dirpath, name)
-        st = os.lstat(p)
+
+        try:
+          st = os.lstat(p)
+        except FileNotFoundError:
+          continue
+
         try:
           writer.writerow([windows_path(p, path), 0 if is_dir else st.st_size, windows_time(st.st_mtime), windows_time(st.st_ctime), windows_attrs(p, name, is_dir)])
         except UnicodeEncodeError:
