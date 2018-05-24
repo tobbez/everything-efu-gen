@@ -107,6 +107,9 @@ def scan(path):
           st = os.lstat(p)
         except FileNotFoundError:
           continue
+        except PermissionError:
+          writer.writerow([windows_path(p, path), 0, 0, 0, windows_attrs(p, name, is_dir)])
+          continue
 
         try:
           writer.writerow([windows_path(p, path), 0 if is_dir else st.st_size, windows_time(st.st_mtime), windows_time(st.st_ctime), windows_attrs(p, name, is_dir)])
