@@ -41,6 +41,10 @@ similar).
 
 History
 -------
+* 0.0.2
+
+  - Gracefully handle insufficient permissions to stat
+
 * 0.0.1
 
   - Gracefully handle stat on non-existant files
