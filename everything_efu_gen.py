@@ -18,7 +18,7 @@ import argparse
 import csv
 import enum
 import os
-import ruamel.yaml
+from ruamel.yaml import YAML
 
 from itertools import chain
 from pathlib import PureWindowsPath
@@ -133,7 +133,8 @@ def main():
 
   dirs = set()
   for f in args.config:
-    config = ruamel.yaml.safe_load(f)
+    yaml = YAML(typ = 'safe', pure = True)
+    config = yaml.load(f)
     dirs.update(config['directories'])
 
   for path in dirs:
