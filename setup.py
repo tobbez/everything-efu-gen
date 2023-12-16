@@ -35,9 +35,6 @@ setuptools.setup(
     'License :: OSI Approved :: ISC License (ISCL)',
 
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.4',
-    'Programming Language :: Python :: 3.5',
-    'Programming Language :: Python :: 3.6',
   ],
 
   keywords=['voidtools', 'everything', 'efu'],
