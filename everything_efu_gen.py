@@ -18,11 +18,18 @@ import argparse
 import csv
 import enum
 import os
+import sys
 import ruamel.yaml
 
 from itertools import chain
 from pathlib import PureWindowsPath
 
+def init_yaml():
+  y = ruamel.yaml.YAML(typ='safe', pure=True)
+  y.default_flow_style = False
+  y.indent = 4
+  y.block_seq_indent = 2
+  return y
 
 class WindowsFileAttribute(enum.Enum):
   """
@@ -69,16 +76,16 @@ def windows_attrs(path, name, is_dir):
   return attrs
 
 
-def generate_config():
+def print_example_config():
   """
-  Generate a sample configuration.
+  Generate and print a sample configuration.
   """
-  return ruamel.yaml.safe_dump({
+  return init_yaml().dump({
       'directories': [
         '/mnt/mydisk',
         '/mnt/myseconddisk',
       ]
-  }, default_flow_style=False, indent=4, block_seq_indent=2)
+  }, stream=sys.stdout)
 
 
 def scan(path):
@@ -127,13 +134,13 @@ def main():
   args = parser.parse_args()
 
   if args.print_sample_config:
-    print(generate_config(), end='')
+    print_example_config()
     return
 
 
   dirs = set()
   for f in args.config:
-    config = ruamel.yaml.safe_load(f)
+    config = init_yaml().load(f)
     dirs.update(config['directories'])
 
   for path in dirs:
