@@ -41,6 +41,10 @@ similar).
 
 History
 -------
+* 0.0.3
+
+  - Support ruamel.yaml >= 0.18.0
+
 * 0.0.2
 
   - Gracefully handle insufficient permissions to stat
